@@ -70,7 +70,7 @@ func UpdateMenuItemHandler() gin.HandlerFunc {
 				c.JSON(http.StatusNotFound, gin.H{"error": err.Error()})
 				return
 			}
-			c.JSON(http.StatusInternalServerError, gin.H{"error": "could not update menu item"})
+			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 			return
 		}
 
