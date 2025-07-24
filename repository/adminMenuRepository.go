@@ -19,7 +19,7 @@ func CreateMenuItem(ctx context.Context, item *models.MenuItem) (int64, error) {
 
 func UpdateMenuItem(ctx context.Context, item *models.MenuItem) error {
 	query := `UPDATE menu_items SET name = ?, description = ?, price = ?, image_url = ?, discount = ?, category_id = ?, is_active = ? WHERE id = ?`
-	_, err := db.DB.ExecContext(ctx, query, item.Name, item.Description, item.Price, item.Image_url, item.Discount, item.Category_id, item.ID)
+	_, err := db.DB.ExecContext(ctx, query, item.Name, item.Description, item.Price, item.Image_url, item.Discount, item.Category_id,item.Is_active, item.ID)
 	return err
 }
 

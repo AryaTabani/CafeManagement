@@ -15,7 +15,6 @@ var (
 	ErrCategoryNotFound = errors.New("category not found")
 )
 
-
 func CreateMenuItem(ctx context.Context, payload *models.AdminMenuItemPayload) (*models.MenuItem, error) {
 	categoryExists, err := repository.CategoryExists(ctx, payload.Category_id)
 	if err != nil {
@@ -32,6 +31,7 @@ func CreateMenuItem(ctx context.Context, payload *models.AdminMenuItemPayload) (
 		Image_url:   payload.Image_url,
 		Discount:    payload.Discount,
 		Category_id: payload.Category_id,
+		Is_active:   payload.Is_active,
 	}
 
 	newID, err := repository.CreateMenuItem(ctx, itemToCreate)
@@ -42,8 +42,6 @@ func CreateMenuItem(ctx context.Context, payload *models.AdminMenuItemPayload) (
 	itemToCreate.ID = newID
 	return itemToCreate, nil
 }
-
-
 
 func UpdateMenuItem(ctx context.Context, id int64, payload *models.AdminMenuItemPayload) error {
 	err := repository.GetMenuItemByID(ctx, id)
@@ -71,12 +69,11 @@ func UpdateMenuItem(ctx context.Context, id int64, payload *models.AdminMenuItem
 		Discount:    payload.Discount,
 		Category_id: payload.Category_id,
 		Is_active:   payload.Is_active,
+		Final_price: payload.Final_price,
 	}
 
 	return repository.UpdateMenuItem(ctx, itemToUpdate)
 }
-
-
 
 func DeleteMenuItem(ctx context.Context, id int64) error {
 	err := repository.GetMenuItemByID(ctx, id)
