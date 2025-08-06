@@ -1,0 +1,26 @@
+# Config file for Air
+root = "."
+tmp_dir = "tmp"
+
+[build]
+# Command to build and run the application.
+cmd = "go build -o ./tmp/main . && ./tmp/main"
+# The name of the binary to run.
+bin = "tmp/main"
+# Watch these file extensions.
+include_ext = ["go", "tpl", "tmpl", "html"]
+# Ignore these directories.
+exclude_dir = ["assets", "tmp", "vendor", "testdata"]
+# Log name
+log = "air_errors.log"
+
+[log]
+# Show log time
+time = true
+
+[color]
+# Customize colors.
+main = "magenta"
+watcher = "cyan"
+build = "yellow"
+runner = "green"

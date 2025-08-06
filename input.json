@@ -1,0 +1,17 @@
+{
+    "name": "Fanta",
+    "description": "sugar,...",
+    "price": 65.0,
+    "discount": 10,
+    "image_url": "fanta.jpg",
+    "category_id": 1,
+    "is_active": true
+}
+{
+    "name": "Cold Drinks",
+    "icon_url": "pokh.png"
+}
+{
+    "username": "admin",
+    "password": "admin123"
+}

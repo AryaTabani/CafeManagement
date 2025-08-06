@@ -44,6 +44,7 @@ func createtables() {
 		price REAL NOT NULL,
 		image_url TEXT,
 		discount INTEGER, 
+		final_price REAL,
 		is_active BOOLEAN NOT NULL DEFAULT true,
 		category_id INTEGER,
 		FOREIGN KEY (category_id) REFERENCES categories(id)
